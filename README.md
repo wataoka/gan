@@ -214,18 +214,25 @@ import math
 |Dense|全結合層|
 |Reshape|形を変更するレイヤー|
 |Activation|活性化関数|
-|BatchNormalization|活性化関数に渡す前にデータをいい感じにしてくれるやつ[^1]|
-|UpSampling2D||
-|Conv2D||
-|MaxPooling2D||
-|Flatten||
-|SGD||
-|mnist||
-|numpy||
+|BatchNormalization|活性化関数に渡す前にデータをいい感じにしてくれるやつ|
+|UpSampling2D|同じデータを増やす. これはデータ量を増やす手段としてよく使われる.|
+|Conv2D|畳み込み層|
+|MaxPooling2D|最大値を取ってくるプーリング層|
+|Flatten|1次元のテンソルに変換してくれる|
+|SGD|確率的勾配降下法|
+|mnist|手書き文字の画像を大量に提供してくれるデータセット|
+|numpy|pythonのライブラリで, 高度な計算を助けてくれる|
 |PIL||
 |argparse||
 |math||
-[^1]:(Batch Normalizationの理解)[https://qiita.com/t-tkd3a/items/14950dbf55f7a3095600]
+
+~軽く解説~
+・BatchNormalization  
+Affineレイヤーの後に使うレイヤーでBatch Normalizationの出力は活性化関数に入力する.  
+メリットは,
+- 学習係数を大きくしても大丈夫になるので, 学習が早くなる.
+- 初期値にそれほど依存しない.
+- 過学習を抑制する.
 
 
  
