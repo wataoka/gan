@@ -226,7 +226,6 @@ import math
 |argparse||
 |math||
 
-軽く解説  
 ■BatchNormalization  
 Affineレイヤーの後に使うレイヤーでBatch Normalizationの出力は活性化関数に入力する.  
 メリット
