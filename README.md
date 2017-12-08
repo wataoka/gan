@@ -222,8 +222,8 @@ import math
 |SGD|確率的勾配降下法|
 |mnist|手書き文字の画像を大量に提供してくれるデータセット|
 |numpy|pythonのライブラリで, 高度な計算を助けてくれる.|
-|PIL||
-|argparse||
+|PIL|画像を色々いじるためのライブラリ|
+|argparse|コマンドライン引数を処理するためのモジュール|
 |math||
 
 ■BatchNormalization  
@@ -233,13 +233,26 @@ Affineレイヤーの後に使うレイヤーでBatch Normalizationの出力は�
 - 初期値にそれほど依存しない.
 - 過学習を抑制する.
 
-■MaxPooling2D
+■MaxPooling2D  
 プリーング層の一種.  
 プーリング層とは, データ量を落とすもの.  
-Maxプーリングとは, 画像内のピクセルのうち2×2のピクセルの中で最も高い値の物だけを残すもの.
+Maxプーリングとは, 画像内のピクセルのうち2×2のピクセルの中で最も高い値の物だけを残すもの.  
+
+■PIL  
+PILとは, Python Imaging Libraryの略で画像を編集することができるライブラリ  
+(例1)画像をグレースケールに変換して保存.
+```python
+from PIL import Image
+
+img = Image.open( 'foo.jpg' )
+gray_img = img.convert('L')
+gray_img.save('gray.jpg')
+```
+
+■argparse  
 
 
- 
+
 ## 参考記事
 ### Gan
 -[Generative Adversarial Networks(Gan)を勉強して、kerasで手書き文字生成する](http://yusuke-ujitoko.hatenablog.com/entry/2017/05/08/010314)
