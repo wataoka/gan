@@ -187,6 +187,47 @@ if __name__ == "__main__":
 
 
 ```
+
+## 解説
+### ■Generatorモデル
+#### import
+```python
+from keras.model import Sequential
+from keras.layers import Dense
+from keras.layers import Reshape
+from keras.layers.core Activation
+from keras.layers.normalization import BatchNormalization
+from keras.layers.convolutional import UpSampling2D
+from keras.layers.convolutional import Conv2D, MaxPooling2D
+from keras.layers.core import Flatten
+from keras.optimizers import SGD
+from keras.datasets import mnist
+import numpy as np
+from PIL import Image
+import argparse
+import math
+```
+
+|名前|解説|
+|:--|:--|
+|Sequential|学習モデルのオブジェクトを生成する. そのモデルにレイヤーを追加していく.|
+|Dense|全結合層|
+|Reshape|形を変更するレイヤー|
+|Activation|活性化関数|
+|BatchNormalization|活性化関数に渡す前にデータをいい感じにしてくれるやつ[^1]|
+|UpSampling2D||
+|Conv2D||
+|MaxPooling2D||
+|Flatten||
+|SGD||
+|mnist||
+|numpy||
+|PIL||
+|argparse||
+|math||
+[^1]:(Batch Normalizationの理解)[https://qiita.com/t-tkd3a/items/14950dbf55f7a3095600]
+
+
  
 ## 参考記事
 ### Gan

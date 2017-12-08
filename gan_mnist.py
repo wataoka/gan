@@ -106,12 +106,12 @@ def train(BATCH_SIZE):
             X = np.concatenate((image_batch, generated_images))
             y = [1] * BATCH_SIZE + [0] * BATCH_SIZE
             d_loss = d.train_on_batch(X, y)
-            #print("batch %d d_loss : %f" % (index, d_loss))
+            print("batch %d d_loss : %f" % (index, d_loss))
             noise = np.random.uniform(-1, 1, (BATCH_SIZE, 100))
             d.trainable = False
             g_loss = d_on_g.train_on_batch(noise, [1] * BATCH_SIZE)
             d.trainable = True
-            #print("batch %d g_loss : %f" % (index, g_loss))
+            print("batch %d g_loss : %f" % (index, g_loss))
             if index % 100 == 0:
                 print(100*index/int(X_train.shape[0]/BATCH_SIZE), '%')
             if index % 10 == 9:
