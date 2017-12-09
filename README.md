@@ -308,6 +308,7 @@ def generator_model():
     return model
 ```
 
+こんな感じ
 ![Generatorモデル](./genetor.png)
 
 
