@@ -251,9 +251,10 @@ gray_img.save('gray.jpg')
 
 ■argparse  
 argparseモジュールはpythonの標準ライブラリで, コマンドライン引数を処理するためのモジュールである.  
+
 コマンドライン引数とは,  
-コマンドラインからプログラムを実行する際, `python [プログラム名]`というコマンドを入力する.  
-一方で, `python [プログラム名] [数字など]`という風にプログラム名の後に値を加えると, プログラム上で`sys.argv`というリストに加えられる. このように実行時に値を変更するための機能がコマンドライン引数である.  
+コマンドラインからプログラムを実行する際, `python [プログラム名]`というコマンドを入力する. 一方で, `python [プログラム名] [数字など]`という風にプログラム名の後に値を加えると, プログラム上で`sys.argv`というリストに加えられる. このように実行時に値を変更するための機能がコマンドライン引数である.  
+
 (例)コマンドライン引数
 ```python
 import sys
@@ -267,6 +268,28 @@ python test.py 12 hoge
 >>>['test.py', 12, 'hoge']
 '''
 ```
+見てわかる通り, sys.argvリストの0番目の要素にはプログラム名が入っている.  
+
+話をargparseに戻す. argparseはコマンドライン引数をより便利にする機能で, 例えば下のように`--sum`というコマンドライン引数が与えられれば, 他の与えられたコマンドラインを合計を計算するようにプログラムを組むことができる.
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator')
+parser.add_argument('--sum', dest='accumulate', action='store_const',const=sum)
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
+
+'''
+実行結果
+python test.py 1 2 3 4 --sum
+>>>10
+'''
+```
+
+
 
 
 
