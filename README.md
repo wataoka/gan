@@ -224,7 +224,7 @@ import math
 |numpy|pythonのライブラリで, 高度な計算を助けてくれる.|
 |PIL|画像を色々いじるためのライブラリ|
 |argparse|コマンドライン引数を処理するためのモジュール|
-|math||
+|math|数学のいろんな関数等を扱えるpythonの標準ライブラリ|
 
 ■BatchNormalization  
 Affineレイヤーの後に使うレイヤーでBatch Normalizationの出力は活性化関数に入力する.  
@@ -289,8 +289,26 @@ python test.py 1 2 3 4 --sum
 '''
 ```
 
+#### モデル
+```python
+def generator_model():
+    model = Sequential()
+    model.add(Dense(input_dim=100 output_dim=1024))
+    model.add(Activation('tanh'))
+    model.add(Dense(128*7*7))
+    model.add(BatchNormalization())
+    model.add(Activation(tanh))
+    model.add(Reshape((7, 7, 128, input_shape=(128*7*7,))))
+    model.add(UpSampling2D(size=(2, 2)))
+    model.add(Conv2D(64, (5, 5), padding='same))
+    model.add(Activation('tanh'))
+    model.add(UpSampling2D(size=(2, 2)))
+    model.add(Conv2D(1, (5, 5), padding='same))
+    model.add(Activation('tanh'))
+    return model
+```
 
-
+![Generatorモデル](./genetor.png)
 
 
 ## 参考記事
