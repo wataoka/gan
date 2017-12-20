@@ -338,7 +338,7 @@ def discriminator_model():
 
 こんな感じ  
 
-![Discriminatorモデル](./disctiminator.png)
+![Discriminatorモデル](./discriminator.png)
 
 ## 参考記事
 ### Gan
